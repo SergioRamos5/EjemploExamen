@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ejemploexamen.MainActivity">
+    <item
+        android:id="@+id/opcmenu1"
+        android:title="Opcion 1"
+        app:showAsAction="ifRoom|withText" />
+    <group android:id="@+id/grupo1">
+        <item
+            android:id="@+id/opcmenu2"
+            android:title="Opcion 2"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/opcmenu3"
+            android:title="Opcion 3"
+            app:showAsAction="never" />
+    </group>
+    <item
+        android:id="@+id/opcmenu4"
+        android:title="Opcion 4"
+        app:showAsAction="never">
+        <menu>
+            <group android:id="@+id/grupo2">
+                <item
+                    android:id="@+id/opcSubMenu1"
+                    android:title="SubMenu 1"
+                    app:showAsAction="never" />
+                <item
+                    android:id="@+id/opcSubMenu2"
+                    android:title="SubMenu 2"
+                    app:showAsAction="never" />
+            </group>
+        </menu>
+    </item>
+</menu>
