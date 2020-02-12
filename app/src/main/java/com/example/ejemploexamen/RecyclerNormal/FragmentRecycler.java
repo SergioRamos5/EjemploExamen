@@ -1,4 +1,4 @@
-package com.example.ejemploexamen;
+package com.example.ejemploexamen.RecyclerNormal;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ejemploexamen.Ciudades;
+import com.example.ejemploexamen.R;
+import com.example.ejemploexamen.SwipeDetector;
 
 import java.util.ArrayList;
 
@@ -89,6 +93,7 @@ public class FragmentRecycler extends Fragment {
         adaptador.setLongListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+
                 Toast.makeText(getContext(), "Long Click sobre la ciudad", Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -100,6 +105,26 @@ public class FragmentRecycler extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL,false));
         return v;
     }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+
+        String str = "";
+
+        switch (item.getItemId())
+        {
+            case R.id.opmenu1:
+                str = "OPCION 1";
+                break;
+            case R.id.opmenu2:
+                str = "OPCION 2";
+                break;
+        }
+
+        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
 
 
 }

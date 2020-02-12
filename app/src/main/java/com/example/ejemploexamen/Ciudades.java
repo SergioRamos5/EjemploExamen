@@ -8,20 +8,23 @@ public class Ciudades implements Parcelable {
     private String nombre;
     private String pais;
     private String poblacion;
+    private boolean seleccionado;
 
     public Ciudades() {
     }
 
-    public Ciudades(String nombre, String pais, String poblacion) {
+    public Ciudades(String nombre, String pais, String poblacion, boolean seleccionado) {
         this.nombre = nombre;
         this.pais = pais;
         this.poblacion = poblacion;
+        this.seleccionado = seleccionado;
     }
 
     protected Ciudades(Parcel in) {
         nombre = in.readString();
         pais = in.readString();
         poblacion = in.readString();
+        seleccionado = in.readByte() != 0;
     }
 
     public static final Creator<Ciudades> CREATOR = new Creator<Ciudades>() {
@@ -60,6 +63,13 @@ public class Ciudades implements Parcelable {
         this.poblacion = poblacion;
     }
 
+    public boolean isSeleccionado() {
+        return seleccionado;
+    }
+
+    public void setSeleccionado(boolean seleccionado) {
+        this.seleccionado = seleccionado;
+    }
 
     @Override
     public int describeContents() {
@@ -71,5 +81,6 @@ public class Ciudades implements Parcelable {
         dest.writeString(nombre);
         dest.writeString(pais);
         dest.writeString(poblacion);
+        dest.writeByte((byte) (seleccionado ? 1 : 0));
     }
 }
